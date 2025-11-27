@@ -1,18 +1,19 @@
 class MyLinkedList {
+
     private ListNode head;
     
-    public static class ListNode{
+    public static class ListNode {
         private int data;
         private ListNode next;
         
-        public ListNode(int data){
+        public ListNode(int data) {
             this.data = data;
             this.next = null;
         }
     }
     
     public MyLinkedList() {
-        this.head = null;
+        this.head = null;   
     }
     
     public int get(int index) {
@@ -20,7 +21,7 @@ class MyLinkedList {
             return -1;
         }
         
-        if(index == 0) {
+        if(index==0) {
             return head.data;
         }
         ListNode current = head;
@@ -36,10 +37,10 @@ class MyLinkedList {
         if(head == null) {
             head = new ListNode(val);
         } else {
-            ListNode newNode = new ListNode(val);
-            newNode.next = head;
-            head = newNode;
-        }
+            ListNode newHead = new ListNode(val);
+            newHead.next = head;
+            head = newHead;
+        }   
     }
     
     public void addAtTail(int val) {
@@ -68,7 +69,7 @@ class MyLinkedList {
         }
         ListNode current = head;
         int pos = 0;
-        while(pos != index - 1) {
+        while(pos != index-1) {
             current = current.next;
             pos++;
         }
@@ -81,14 +82,14 @@ class MyLinkedList {
         if(index < 0 || index >= size()) {
             return;
         }   
-        if(index == 0) {
+        if(index==0) {
             head = head.next;
             return;
         }
         ListNode current = head;
         ListNode pre = null;
         int pos = 0;
-        while(pos != index) {
+        while(pos!=index) {
             pre = current;
             current = current.next;
             pos++;
@@ -97,15 +98,15 @@ class MyLinkedList {
     }
     
     public int size() {
-        if(head == null) return 0;
-        
+        if(head == null) {
+            return 0;
+        }
         ListNode current = head;
         int pos = 0;
         while(current != null) {
             current = current.next;
             pos++;
         }
-        
         return pos;
     }
 }
